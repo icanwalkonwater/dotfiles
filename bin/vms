@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# No longer needed since 4.18.16
+# sudo /home/lucas/scripts/setup_usb_vfio.sh
+
+out=$(sudo virsh start win10-passthrough 2>&1)
+if [ $? -ne 0 ]; then
+	>&2 echo 'An error occured while starting the VM !'
+	>&2 echo "$out"
+else
+	sudo virt-manager -c "qemu:///system" --show-domain-editor win10-passthrough
+fi

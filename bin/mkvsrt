@@ -1,0 +1,7 @@
+#!/bin/zsh
+read -p 'Enter the ID of the track (default: 2) ' track
+if [[ -z "$track" ]]; then
+	track=2
+fi
+
+mkvextract tracks $1 $track:$(echo $1 | sed -r 's/\.mkv/\.srt/g')
