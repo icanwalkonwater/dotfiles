@@ -5,4 +5,4 @@ if [ "$#" -ne 1 ]; then
     exit 1
 fi
 
-xrdb -query | grep $1 | cut -f2
+xrdb -query | grep $1 | cut -f2 | head -n 1
