@@ -172,7 +172,7 @@ bindsym control+Mod1+l exec betterlockscreen -l blur
 # Gaps
 gaps inner 10
 gaps outer 5
-for_window [class="^.*"] border pixel 1
+for_window [class="^.*"] border pixel 0
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
@@ -186,6 +186,3 @@ for_window [class="^.*"] border pixel 1
 exec --no-startup-id $HOME/.fehbg
 exec --no-startup-id compton -b --config $HOME/.config/compton/compton.conf
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
-
-# Select first workspace
-exec workspace number $ws1
