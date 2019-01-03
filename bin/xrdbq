@@ -1,0 +1,8 @@
+#!/bin/bash
+
+if [ "$#" -ne 1 ]; then
+    >&2 echo "Usage xrdbq <query>"
+    exit 1
+fi
+
+xrdb -query | grep $1 | cut -f2
