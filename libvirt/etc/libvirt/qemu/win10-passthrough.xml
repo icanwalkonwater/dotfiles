@@ -69,21 +69,21 @@
     </disk>
     <disk type='file' device='cdrom'>
       <driver name='qemu' type='raw'/>
-      <source file='/media/bbw/_ISO/Win10_1709_French_x64.iso'/>
+      <source file='/media/bbw/Downloads/ISO/Win10_1709_French_x64.iso'/>
       <target dev='hda' bus='ide'/>
       <readonly/>
       <address type='drive' controller='0' bus='0' target='0' unit='0'/>
     </disk>
     <disk type='file' device='cdrom'>
       <driver name='qemu' type='raw'/>
-      <source file='/media/bbw/_ISO/virtio-win-0.1.149.iso'/>
+      <source file='/media/bbw/Downloads/ISO/virtio-win-0.1.149.iso'/>
       <target dev='hdb' bus='ide'/>
       <readonly/>
       <address type='drive' controller='0' bus='0' target='0' unit='1'/>
     </disk>
     <disk type='file' device='disk'>
       <driver name='qemu' type='qcow2'/>
-      <source file='/media/ssd-virtual/win10-passthrough.qcow2'/>
+      <source file='/media/ssd/win10-passthrough.qcow2'/>
       <target dev='sdc' bus='scsi'/>
       <boot order='1'/>
       <address type='drive' controller='0' bus='0' target='0' unit='2'/>
@@ -116,10 +116,10 @@
       <master startport='4'/>
       <address type='pci' domain='0x0000' bus='0x00' slot='0x04' function='0x2'/>
     </controller>
-    <interface type='direct'>
+    <interface type='network'>
       <mac address='52:54:00:d0:8a:2f'/>
-      <source dev='enp3s0' mode='bridge'/>
-      <model type='e1000'/>
+      <source network='default'/>
+      <model type='rtl8139'/>
       <link state='up'/>
       <address type='pci' domain='0x0000' bus='0x00' slot='0x03' function='0x0'/>
     </interface>

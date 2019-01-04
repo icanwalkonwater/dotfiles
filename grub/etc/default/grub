@@ -1,6 +1,6 @@
 # GRUB boot loader configuration
 
-GRUB_DEFAULT=0
+GRUB_DEFAULT=saved
 GRUB_TIMEOUT=5
 GRUB_DISTRIBUTOR="Arch"
 GRUB_CMDLINE_LINUX_DEFAULT="intel_iommu=on iommu=pt vfio-pci.ids=10de:1c02,10de:10f1,8086:0c01,12d8:e1111,1106:3038,1106:3104 default_hugepagesz=1G hugepagesz=1G hugepages=8"
@@ -35,7 +35,8 @@ GRUB_GFXPAYLOAD_LINUX=keep
 #GRUB_DISABLE_LINUX_UUID=true
 
 # Uncomment to disable generation of recovery mode menu entries
-#GRUB_DISABLE_RECOVERY=true
+GRUB_DISABLE_RECOVERY=true
+
 # Uncomment and set to the desired menu colors.  Used by normal and wallpaper
 # modes only.  Entries specified as foreground/background.
 #GRUB_COLOR_NORMAL="light-blue/black"
@@ -43,11 +44,11 @@ GRUB_GFXPAYLOAD_LINUX=keep
 
 # Uncomment one of them for the gfx desired, a image background or a gfxtheme
 #GRUB_BACKGROUND="/path/to/wallpaper"
-GRUB_THEME="/boot/grub/themes/Vimix/theme.txt"
+#GRUB_THEME="/path/to/gfxtheme"
 
 # Uncomment to get a beep at GRUB start
 #GRUB_INIT_TUNE="480 440 1"
 
 # Uncomment to make GRUB remember the last selection. This requires to
 # set 'GRUB_DEFAULT=saved' above.
-#GRUB_SAVEDEFAULT="true"
+GRUB_SAVEDEFAULT="true"

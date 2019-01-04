@@ -30,8 +30,17 @@ font pango:Noto Sans 11
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
+# Back and forth
+# workspace_auto_back_and_forth yes
+
+# Gaps
+gaps inner 10
+gaps outer 5
+for_window [class="^.*"] border pixel 0
+
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+# bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec kitty
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -45,24 +54,12 @@ bindsym $mod+d exec "rofi -combi-modi window,drun,ssh -theme solarized -show com
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 # change focus
-# bindsym $mod+j focus left
-# bindsym $mod+k focus down
-# bindsym $mod+l focus up
-# bindsym $mod+semicolon focus right
-
-# alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
 bindsym $mod+Down focus down
 bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
 # move focused window
-# bindsym $mod+Shift+j move left
-# bindsym $mod+Shift+k move down
-# bindsym $mod+Shift+l move up
-# bindsym $mod+Shift+semicolon move right
-
-# alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
 bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
@@ -131,13 +128,20 @@ bindsym $mod+Shift+8 move container to workspace $ws8
 bindsym $mod+Shift+9 move container to workspace $ws9
 bindsym $mod+Shift+0 move container to workspace $ws10
 
+# Bind program to workspace
+for_window [class="Chromium"] move container to workspace $ws3
+for_window [class="discord"] move container to workspace $ws4
+for_window [class="Spotify"] move container to workspace $ws5
+for_window [class="jetbrains-toolbox"] floating enable
+for_window [class="virt-manager" title="QEMU/KVM Connection Details"] floating enable
+
 # reload the configuration file
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 # bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
-bindsym $mod+Shift+e exec i3-msg exit
+bindsym $mod+Shift+e [class="(?i)spotify"] kill; exec i3-msg exit
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -147,16 +151,10 @@ mode "resize" {
         # Pressing right will grow the window’s width.
         # Pressing up will shrink the window’s height.
         # Pressing down will grow the window’s height.
-        # bindsym j resize shrink width 10 px or 10 ppt
-        # bindsym k resize grow height 10 px or 10 ppt
-        # bindsym l resize shrink height 10 px or 10 ppt
-        # bindsym semicolon resize grow width 10 px or 10 ppt
-
-        # same bindings, but for the arrow keys
-        bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Down resize grow height 10 px or 10 ppt
-        bindsym Up resize shrink height 10 px or 10 ppt
-        bindsym Right resize grow width 10 px or 10 ppt
+        bindsym Left resize shrink width 5 px or 5 ppt
+        bindsym Down resize grow height 5 px or 5 ppt
+        bindsym Up resize shrink height 5 px or 5 ppt
+        bindsym Right resize grow width 5 px or 5 ppt
 
         # back to normal: Enter or Escape or $mod+r
         bindsym Return mode "default"
@@ -167,12 +165,15 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # Lock screen
-bindsym control+Mod1+l exec betterlockscreen -l blur
+bindsym control+Mod1+l exec betterlockscreen -l dim
 
-# Gaps
-gaps inner 10
-gaps outer 5
-for_window [class="^.*"] border pixel 0
+
+# Media control mouse
+bindcode 171 exec --no-startup-id playerctl next
+bindcode 173 exec --no-startup-id playerctl previous
+bindcode 172 exec --no-startup-id playerctl play-pause
+bindcode 123 exec --no-startup-id pamixer --increase 5
+bindcode 122 exec --no-startup-id pamixer --decrease 5
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)

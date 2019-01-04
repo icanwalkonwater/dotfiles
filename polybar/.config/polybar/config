@@ -26,7 +26,7 @@ workspace-focus = ${xrdb:color0}
 
 [bar/top]
 bottom = false
-fixed-center = false
+fixed-center = true
 
 width = 100%
 height = 30
@@ -48,13 +48,13 @@ font-0 = "FuraCode Nerd Font:size=11;3"
 
 modules-left = i3
 modules-center = title
-modules-right = update date
+modules-right = pulseaudio update date
 
 locale = en_US.UTF-8
 
 [bar/bottom]
 bottom = true
-fixed-center = false
+fixed-center = true
 
 width = 100%
 height = 30
@@ -72,6 +72,7 @@ padding = 2
 font-0 = "FuraCode Nerd Font:size=11;3"
 
 modules-left = powermenu
+modules-center = spotify
 modules-right = cpu memory
 
 locale = en_US.UTF-8
@@ -83,14 +84,21 @@ strip-wsnumbers = true
 format = <label-state> <label-mode>
 
 ws-icon-0 = 1;
-ws-icon-1 = 2;
-ws-icon-2 = 3;
-ws-icon-default = 
+ws-icon-1 = 2;
+ws-icon-2 = 3;
+ws-icon-3 = 4;ﭮ
+ws-icon-4 = 5;
+ws-icon-5 = 6;
+ws-icon-6 = 7;
+ws-icon-7 = 8;
+ws-icon-8 = 9;
+ws-icon-9 = 10;
 
 label-mode = %mode%
 label-visible = %icon%
-label-focused = %icon%
+label-focused = %index% %icon%
 label-unfocused = %icon%
+label-urgent = %index% %icon%
 label-mode-padding = 2
 label-visible-padding = 2
 label-focused-padding = 2
@@ -129,13 +137,13 @@ ramp-coreload-7-foreground = ${xrdb:color1}
 [module/memory]
 type = internal/memory
 interval = 2
-format = <label> [<bar-used>]
+format = <label> <bar-used>
 format-prefix = " "
 format-prefix-foreground = ${xrdb:color3}
 label = RAM %percentage_used%%
 
+bar-used-format = [%fill%%empty%]
 bar-used-width = 10
-bar-used-indicator = |
 bar-used-foreground-0 = ${xrdb:color2}
 bar-used-foreground-1 = ${xrdb:color2}
 bar-used-foreground-2 = ${xrdb:color2}
@@ -163,20 +171,55 @@ format = <label>
 lable = %title%
 label-empty =
 
+[module/pulseaudio]
+type = internal/pulseaudio
+sink = alsa_output.pci-0000_00_1b.0.analog-stereo
+use-ui-max = true
+interval = 5
+
+format-volume = VOL <label-volume> <bar-volume>
+format-volume-prefix = "墳 "
+format-volume-prefix-foreground = ${xrdb:color5}
+label-volume = %percentage%%
+
+format-muted = <label-muted>
+format-muted-prefix = "婢 "
+format-muted-prefix-foreground = ${xrdb:color1}
+label-muted = VOL Muted
+
+bar-volume-format = [%fill%%empty%]
+bar-volume-width = 10
+bar-volume-gradient = false
+bar-volume-foreground-0 = ${xrdb:color2}
+bar-volume-foreground-1 = ${xrdb:color2}
+bar-volume-foreground-2 = ${xrdb:color2}
+bar-volume-foreground-3 = ${xrdb:color2}
+bar-volume-foreground-4 = ${xrdb:color2}
+bar-volume-foreground-5 = ${xrdb:color1}
+
+bar-volume-fill = "━"
+bar-volume-empty = "─"
+bar-volume-empty-foreground = ${xrdb:color7}
+
 [module/powermenu]
 type = custom/menu
 expand-right = true
 
 format = <label-toggle> <menu>
 label-open = 
+label-open-foreground = ${xrdb:color1}
 label-close = 
+label-close-foreground = ${xrdb:color9}
 label-separator = " | "
 
 menu-0-0 =  Suspend
+menu-0-0-foreground = ${xrdb:color6}
 menu-0-0-exec = systemctl suspend
 menu-0-1 =  Reboot
+menu-0-1-foreground = ${xrdb:color3}
 menu-0-1-exec = systemctl reboot
 menu-0-2 =  Shutdown
+menu-0-2-foreground = ${xrdb:color1}
 menu-0-2-exec = systemctl poweroff
 
 [module/update]
@@ -185,13 +228,21 @@ exec = ~/.config/polybar/arch-update.sh --display
 ; 10 minutes
 interval = 600
 
-format = <label> updates
+format = <label>
 format-prefix = " "
 format-prefix-foreground = ${xrdb:color4}
 ; Update display
 click-left = ~/.config/polybar/arch-update.sh --display
 ; Trigger update
 click-right = ~/.config/polybar/arch-update.sh --update
+
+[module/spotify]
+type = custom/script
+exec = ~/.config/polybar/spotify.sh --status
+interval = 1
+
+click-left = ~/.config/polybar/spotify.sh --toggle
+click-right = ~/.config/polybar/spotify.sh --toggle
 
 [settings]
 screenchange-reload = true
