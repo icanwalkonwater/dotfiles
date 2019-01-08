@@ -48,7 +48,7 @@ font-0 = "FuraCode Nerd Font:size=11;3"
 
 modules-left = i3
 modules-center = title
-modules-right = pulseaudio update date
+modules-right = pulseaudio update battery date
 
 locale = en_US.UTF-8
 
@@ -71,9 +71,8 @@ padding = 2
 
 font-0 = "FuraCode Nerd Font:size=11;3"
 
-modules-left = powermenu
-modules-center = spotify
-modules-right = cpu memory
+modules-left = powermenu backlight spotify
+modules-right = cpu memory network-wifi
 
 locale = en_US.UTF-8
 
@@ -144,12 +143,13 @@ label = RAM %percentage_used%%
 
 bar-used-format = [%fill%%empty%]
 bar-used-width = 10
+bar-used-gradient = false
 bar-used-foreground-0 = ${xrdb:color2}
 bar-used-foreground-1 = ${xrdb:color2}
 bar-used-foreground-2 = ${xrdb:color2}
 bar-used-foreground-3 = ${xrdb:color1}
-bar-used-fill = "━"
-bar-used-empty = "─"
+bar-used-fill = ━
+bar-used-empty = ─
 bar-used-empty-foreground = ${xrdb:color7}
 
 [module/date]
@@ -170,10 +170,11 @@ type = internal/xwindow
 format = <label>
 lable = %title%
 label-empty =
+label-maxlen = 70
 
 [module/pulseaudio]
 type = internal/pulseaudio
-sink = alsa_output.pci-0000_00_1b.0.analog-stereo
+sink = alsa_output.pci-0000_00_1f.3.analog-stereo
 use-ui-max = true
 interval = 5
 
@@ -197,9 +198,16 @@ bar-volume-foreground-3 = ${xrdb:color2}
 bar-volume-foreground-4 = ${xrdb:color2}
 bar-volume-foreground-5 = ${xrdb:color1}
 
-bar-volume-fill = "━"
-bar-volume-empty = "─"
+bar-volume-fill = ━
+bar-volume-empty = ─
 bar-volume-empty-foreground = ${xrdb:color7}
+
+; [module/mpd]
+; type = internal/mpd
+; host = 127.0.0.1
+; port = 6600
+; password =
+; interval = 1
 
 [module/powermenu]
 type = custom/menu
@@ -209,7 +217,7 @@ format = <label-toggle> <menu>
 label-open = 
 label-open-foreground = ${xrdb:color1}
 label-close = 
-label-close-foreground = ${xrdb:color9}
+label-close-foreground = ${xrdb:color1}
 label-separator = " | "
 
 menu-0-0 =  Suspend
@@ -222,9 +230,94 @@ menu-0-2 =  Shutdown
 menu-0-2-foreground = ${xrdb:color1}
 menu-0-2-exec = systemctl poweroff
 
+[module/battery]
+type = internal/battery
+full-at = 100
+battery = BAT0
+adapter = AC0
+
+format-full = <label-full>
+label-full-prefix = 
+label-full-prefix-foreground = ${xrdb:color2}
+label-full = 100%
+
+format-charging = <animation-charging> <label-charging>
+format-charging-prefix = " "
+format-charging-prefix-foreground = ${xrdb:color11}
+label-charging = %percentage%% +%consumption%W
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-3 = 
+animation-charging-4 = 
+animation-charging-framerate = 750
+animation-charging-foreground = ${xrdb:color2}
+
+format-discharging = <ramp-capacity> <label-discharging>
+label-discharging = %percentage%% -%consumption%W
+ramp-capacity-0 = 
+ramp-capacity-0-foreground = ${xrdb:color1}
+ramp-capacity-1 = 
+ramp-capacity-1-foreground = ${xrdb:color3}
+ramp-capacity-2 = 
+ramp-capacity-2-foreground = ${xrdb:color2}
+ramp-capacity-3 = 
+ramp-capacity-3-foreground = ${xrdb:color2}
+ramp-capacity-4 = 
+ramp-capacity-4-foreground = ${xrdb:color2}
+
+[module/backlight]
+type = internal/xbacklight
+enable-scroll = true
+
+format = <ramp>
+ramp-foreground = ${xrdb:color3}
+ramp-0 = 
+ramp-1 = 
+ramp-2 = 
+ramp-3 = 
+ramp-4 = 
+ramp-5 = 
+ramp-6 = 
+ramp-7 = 
+ramp-8 = 
+ramp-9 = 
+ramp-10 = 
+ramp-11 = 
+ramp-12 = 
+ramp-13 = 
+ramp-14 = 
+
+[module/network-wifi]
+type = internal/network
+interface = wlp1s0
+interval = 3.0
+ping-interval = 15
+accumulate-stats = true
+
+format-connected = <label-connected>
+format-connected-prefix = " "
+format-connected-prefix-foreground = ${xrdb:color4}
+format-connected-suffix = " "
+format-connected-suffix-foreground = ${xrdb:color2}
+label-connected = %upspeed% %downspeed%
+
+format-disconnected = <label-disconnected>
+label-disconnected = 睊
+label-disconnected-foreground = ${xrdb:color1}
+
+format-packet-loss = <animation-packetloss> <label-packetloss>
+label-packetloss = Packet loss
+label-packetloss-foreground = ${xrdb:color1}
+animation-packetloss-0 = 
+animation-packetloss-0-foreground = ${xrdb:color1}
+animation-packetloss-1 = 
+animation-packetloss-1-foreground = ${xrdb:color3}
+
 [module/update]
 type = custom/script
 exec = ~/.config/polybar/arch-update.sh --display
+exec-if = wget -q --spider http://google.com
 ; 10 minutes
 interval = 600
 
@@ -236,13 +329,20 @@ click-left = ~/.config/polybar/arch-update.sh --display
 ; Trigger update
 click-right = ~/.config/polybar/arch-update.sh --update
 
-[module/spotify]
+[module/spotify-old]
 type = custom/script
 exec = ~/.config/polybar/spotify.sh --status
+exec-if = pgrep -x spotify
 interval = 1
 
 click-left = ~/.config/polybar/spotify.sh --toggle
 click-right = ~/.config/polybar/spotify.sh --toggle
+
+[module/spotify]
+type = custom/script
+exec = python ~/.config/polybar/spotify.py $(~/bin/xrdbq color2)
+exec-if = pgrep -x spotify
+interval = 2
 
 [settings]
 screenchange-reload = true
