@@ -1,8 +1,9 @@
 #!/bin/bash
 
 count_update() {
-    yay -Sy >&/dev/null
-    echo $(yay -Qu | wc -l)
+    # yay -Sy >&/dev/null
+    # echo $(yay -Qu | wc -l)
+    expr $(checkupdates | wc -l) + $(checkupdates-aur | wc -l)
 }
 
 update() {
