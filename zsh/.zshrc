@@ -121,9 +121,75 @@ source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 # Kitty completion
 kitty + complete setup zsh | source /dev/stdin
 
-# Enable spaceship
+# Setup spaceship
 autoload -U promptinit; promptinit
 prompt spaceship
+
+SPACESHIP_PROMPT_ORDER=(
+  #time
+  exit_code
+  jobs
+  user
+  host
+  dir
+  git
+  #hg
+  #package
+  #node
+  #ruby
+  #elixir
+  #xcode
+  #swift
+  #golang
+  #php
+  #rust
+  #haskell
+  #julia
+  #docker
+  #aws
+  #venv
+  #conda
+  #pyenv
+  #dotnet
+  #ember
+  #kubecontext
+  #terraform
+  exec_time
+  #battery
+  #vi_mode
+  char
+)
+
+SPACESHIP_PROMPT_ADD_NEWLINE=false
+SPACESHIP_PROMPT_SEPARATE_LINE=false
+
+# Char settings
+SPACESHIP_CHAR_PREFIX=''
+SPACESHIP_CHAR_SUFFIX=' '
+SPACESHIP_CHAR_SYMBOL=◆
+SPACESHIP_CHAR_SYMBOL_ROOT=
+
+# User/host settings
+SPACESHIP_USER_SHOW=always
+SPACESHIP_USER_PREFIX=''
+SPACESHIP_USER_SUFFIX=''
+SPACESHIP_HOST_SHOW=always
+SPACESHIP_HOST_PREFIX=@
+
+# DIr settings
+SPACESHIP_DIR_PREFIX=''
+SPACESHIP_DIR_TRUNC=15
+SPACESHIP_DIR_TRUC_PREFIX='[...]/'
+SPACESHIP_DIR_TRUNC_REPO=false
+
+# Git settings
+SPACESHIP_GIT_PREFIX=''
+SPACESHIP_GIT_STATUS_PREFIX=' '
+SPACESHIP_GIT_STATUS_SUFFIX=''
+
+# Exec time and exit code settings
+SPACESHIP_EXEC_TIME_PREFIX=''
+SPACESHIP_EXIT_CODE_SHOW=true
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
@@ -138,6 +204,7 @@ alias js=js52
 alias qemu=qemu-system-x86_64
 alias zshconfig="subl3 ~/.zshrc"
 alias sshvps="ssh root@vps.local"
+alias cat=ccat
 
 # Fortune
 echo
