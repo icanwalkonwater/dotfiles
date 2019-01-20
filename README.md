@@ -1,6 +1,10 @@
 # Dotfiles
 Not that some config like grub/cura are just here to help me maintain my configs.
 
+## Screenshot
+![screen.png]
+[More screenshots with different color schemes](https://imgur.com/a/4XVQwuO)
+
 ## Dependencies
 * [i3-gaps](https://github.com/Airblader/i3/)
 	* [polybar](https://github.com/jaagr/polybar/)
