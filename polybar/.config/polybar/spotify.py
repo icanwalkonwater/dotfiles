@@ -7,11 +7,9 @@ gi.require_version('Playerctl', '2.0')
 
 from gi.repository import Playerctl
 
-FORMAT_CONTROL = '%%{F' + sys.argv[1] + '}' \
-                 '%%{A1:playerctl --player=spotify previous:}%%{A} ' \
+FORMAT_CONTROL = '%%{A1:playerctl --player=spotify previous:}%%{A} ' \
                  '%%{A1:playerctl --player=spotify play-pause:}%s%%{A} ' \
-                 '%%{A1:playerctl --player=spotify next:}%%{A}' \
-                 '%%{F-} '
+                 '%%{A1:playerctl --player=spotify next:} %%{A}'
 FORMAT_TITLE = '%s - %s'
 
 player = Playerctl.Player()

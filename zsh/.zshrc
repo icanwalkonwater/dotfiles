@@ -118,6 +118,9 @@ source $ZSH/oh-my-zsh.sh
 # Syntax highlighting
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
+# Wal colors
+(cat ~/.cache/wal/sequences &)
+
 # Kitty completion
 kitty + complete setup zsh | source /dev/stdin
 
