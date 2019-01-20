@@ -2,7 +2,7 @@
 Not that some config like grub/cura are just here to help me maintain my configs.
 
 ## Screenshot
-![screen.png]
+![Screen](screen.png)
 [More screenshots with different color schemes](https://imgur.com/a/4XVQwuO)
 
 ## Dependencies
