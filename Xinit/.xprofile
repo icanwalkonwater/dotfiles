@@ -12,3 +12,7 @@ export QT_QPA_PLATFORMTHEME=gtk2
 
 # Prevent ranger from loading its config twice
 export RANGER_LOAD_DEFAULT_RC=false
+
+# Wal
+#wal -i $HOME/Images/Wallpaper
+wal -R
