@@ -71,6 +71,7 @@ plugins=(
   node
   npm
   composer
+  laravel
   pip
   python
   pyenv
@@ -121,7 +122,7 @@ source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 # Wal colors
 (cat ~/.cache/wal/sequences &)
 
-# Kitty completion
+# Other Completion
 kitty + complete setup zsh | source /dev/stdin
 
 # Setup spaceship
@@ -150,7 +151,7 @@ SPACESHIP_PROMPT_ORDER=(
   #julia
   #docker
   #aws
-  #venv
+  venv
   #conda
   #pyenv
   #dotnet
@@ -190,9 +191,14 @@ SPACESHIP_GIT_PREFIX=''
 SPACESHIP_GIT_STATUS_PREFIX=' '
 SPACESHIP_GIT_STATUS_SUFFIX=''
 
+# Virtualenv
+SPACESHIP_VENV_PREFIX=''
+SPACESHIP_VENV_SYMBOL=' '
+
 # Exec time and exit code settings
 SPACESHIP_EXEC_TIME_PREFIX=''
 SPACESHIP_EXIT_CODE_SHOW=true
+SPACESHIP_EXIT_CODE_SYMBOL=''
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
@@ -208,6 +214,7 @@ alias qemu=qemu-system-x86_64
 alias zshconfig="subl3 ~/.zshrc"
 alias sshvps="ssh root@vps.local"
 alias cat=ccat
+alias import="import \"$HOME/Images/Screenshot_$(date +%s_%N)"
 
 # Fortune
 echo

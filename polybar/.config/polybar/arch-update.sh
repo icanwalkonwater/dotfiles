@@ -7,7 +7,7 @@ count_update() {
 }
 
 update() {
-    kitty yay -Syu
+    kitty --hold yay -Syu &
 }
 
 case "$1" in

@@ -97,7 +97,7 @@ font-0 = "FuraCode Nerd Font:size=12;3"
 font-1 = "FuraCode Nerd Font:style=Bold:size=12;3"
 
 modules-left = daPT powermenu daTS backlight daSP spotify spotify-off ddlP
-modules-right = ddrT cpu dsTS memory dsST network-wifi
+modules-right = ddrT cpu dsTS memory dsST network-wifi network-ethernet
 
 locale = en_US.UTF-8
 
@@ -111,11 +111,20 @@ modules-left = arch-icon dulP ddrT i3 dulT
 modules-center = title
 modules-right = durT pulseaudio ddlT durS update ddlS durT battery ddlT durP date
 
+[bar/top-gaps-nobattery]
+inherit = bar/top-gaps
+modules-right = durT pulseaudio ddlT durS update ddlS durP date
+
 [bar/bottom-gaps]
 inherit = bar/bottom
 
 modules-left = ddlP durT powermenu ddlT durS backlight ddlS durP spotify spotify-off ddlP
-modules-right = ddrT cpu dulT ddrS memory dulS ddrT network-wifi
+modules-right = ddrT cpu dulT ddrS memory dulS ddrT network-wifi network-ethernet
+
+[bar/bottom-gaps-nobacklight]
+inherit = bar/bottom-gaps
+
+modules-left = ddlP durT powermenu ddlT durP spotify spotify-off ddlP
 
 ;==========================================================
 ;================== SOLID TRANSITION
@@ -453,8 +462,7 @@ format-padding = 1
 label =  Spotify
 label-font = 2
 
-; doesn't work
-click-left = "spotify &"
+click-left = "i3-msg exec spotify"
 
 ;==========================================================
 ;================== BOTTOM RIGHT MODULES
@@ -503,7 +511,7 @@ label = RAM  %percentage_used%%  %percentage_swap_used%%
 type = internal/network
 interface = wlp1s0
 interval = 3.0
-ping-interval = 15
+ping-interval = 0
 accumulate-stats = true
 
 format-connected = <label-connected>
@@ -515,6 +523,35 @@ format-disconnected = <label-disconnected>
 format-disconnected-background = ${colors.tertiary}
 format-disconnected-padding = 1
 label-disconnected = 睊
+label-disconnected-foreground = ${colors.urgency}
+
+format-packet-loss = <animation-packetloss> <label-packetloss>
+format-packet-loss-background = ${colors.tertiary}
+format-packet-loss-padding = 1
+label-packetloss = Packet loss
+label-packetloss-foreground = ${colors.urgency}
+animation-packetloss-0 = 
+animation-packetloss-0-foreground = ${colors.urgency}
+animation-packetloss-1 = 
+animation-packetloss-1-foreground = ${colors.primary}
+
+[module/network-ethernet]
+type = internal/network
+interface = enp3s0
+; interface = enp0s20u9
+interval = 3.0
+ping-interval = 0
+accumulate-stats = true
+
+format-connected = <label-connected>
+format-connected-background = ${colors.tertiary}
+format-connected-padding = 1
+label-connected =  %upspeed%   %downspeed%
+
+format-disconnected = <label-disconnected>
+format-disconnected-background = ${colors.tertiary}
+format-disconnected-padding = 1
+label-disconnected = 
 label-disconnected-foreground = ${colors.urgency}
 
 format-packet-loss = <animation-packetloss> <label-packetloss>
