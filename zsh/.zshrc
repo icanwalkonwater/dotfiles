@@ -139,13 +139,13 @@ SPACESHIP_PROMPT_ORDER=(
   git
   #hg
   #package
-  #node
+  node
   #ruby
   #elixir
   #xcode
   #swift
   #golang
-  #php
+  php
   #rust
   #haskell
   #julia
@@ -195,6 +195,14 @@ SPACESHIP_GIT_STATUS_SUFFIX=''
 SPACESHIP_VENV_PREFIX=''
 SPACESHIP_VENV_SYMBOL=' '
 
+# Node.JS
+SPACESHIP_NODE_PREFIX=''
+SPACESHIP_NODE_SYMBOL=' '
+
+# PHP
+SPACESHIP_PHP_PREFIX=''
+SPACESHIP_PHP_SYMBOL=' '
+
 # Exec time and exit code settings
 SPACESHIP_EXEC_TIME_PREFIX=''
 SPACESHIP_EXIT_CODE_SHOW=true
@@ -208,10 +216,9 @@ SPACESHIP_EXIT_CODE_SYMBOL=''
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias subl=subl3
 alias js=js52
 alias qemu=qemu-system-x86_64
-alias zshconfig="subl3 ~/.zshrc"
+alias zshconfig="st ~/.zshrc"
 alias sshvps="ssh root@vps.local"
 alias cat=ccat
 alias import="import \"$HOME/Images/Screenshot_$(date +%s_%N)"

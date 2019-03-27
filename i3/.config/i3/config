@@ -136,6 +136,7 @@ bindsym $mod+Shift+9 move container to workspace $ws9
 bindsym $mod+Shift+0 move container to workspace $ws10
 
 # Bind program to workspace
+assign [class="jetbrains-idea"] $ws2
 assign [class="Chromium"] $ws3
 for_window [class="Chromium" window_role="pop-up"] floating enable
 assign [class="Google-chrome"] $ws3
