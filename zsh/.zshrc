@@ -219,8 +219,6 @@ SPACESHIP_EXIT_CODE_SYMBOL=''
 alias js=js52
 alias qemu=qemu-system-x86_64
 alias zshconfig="st ~/.zshrc"
-alias sshvps="ssh root@vps.local"
-alias cat=ccat
 alias import="import \"$HOME/Images/Screenshot_$(date +%s_%N)"
 
 # Fortune
