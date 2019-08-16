@@ -23,5 +23,5 @@ if pgrep -x spotify >/dev/null; then
 	echo -n "%{A1:$cmd next:}%{A} "
 	$cmd metadata -f '{{ artist }} - {{ title }}'
 else
-	echo "%{A1:i3-msg exec --no-startup-id spotify} Spotify%{A}"
+	echo "%{A1:i3-msg exec --no-startup-id spotify:} Spotify%{A}"
 fi

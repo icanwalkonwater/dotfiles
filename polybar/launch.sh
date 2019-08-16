@@ -7,6 +7,6 @@ killall -q polybar
 while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
 
 # Launch bars
-polybar top-gaps-nobattery &
-polybar bottom-gaps-nobacklight &
+polybar top &
+polybar bottom &
 # polybar example &

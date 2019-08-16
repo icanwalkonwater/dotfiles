@@ -37,77 +37,15 @@ urgency = ${xrdb:color3}
 ;======================== BASE BARS
 ;==========================================================
 [bar/top]
-bottom = false
-fixed-center = true
-
-width = 100%
-height = 19
-offset-x = 1%
-; offset-y = 1%
-
-scroll-up = i3wm-wsnext
-scroll-down = i3wm-wsprev
-
-background = ${colors.background}
-foreground = ${colors.foreground}
-
-radius = 0
-
-; module-margin = 2
-; padding = 2
-separator =
-
-font-0 = "FuraCode Nerd Font:size=12;3"
-font-1 = "FuraCode Nerd Font:style=Bold:size=12;3"
-
-modules-left = arch-icon dsPT i3 dulT
-modules-center = title
-modules-right = durT pulseaudio daTS update daST battery daTP date
-
-locale = en_US.UTF-8
-
-[bar/bottom]
-bottom = true
-fixed-center = true
-
-width = 100%
-height = 19
-; offset-x = 1%
-; offset-y = 1%
-
-background = ${colors.background}
-foreground = ${colors.foreground}
-
-radius = 0
-
-; module-margin = 2
-; padding = 1
-separator =
-
-tray-position = left
-tray-detached = false
-tray-maxsize = 15
-tray-background = ${colors.primary}
-tray-offset-x = -19
-tray-offset-y = 0
-tray-padding = 5
-tray-scale = 1.0
-
-font-0 = "FuraCode Nerd Font:size=12;3"
-font-1 = "FuraCode Nerd Font:style=Bold:size=12;3"
-
-modules-left = daPT powermenu daTS backlight daSP spotify spotify-off ddlP
-modules-right = ddrT cpu dsTS memory dsST network-wifi network-ethernet
-
-locale = en_US.UTF-8
-
-[bar/new-top]
 fixed-center = true
 
 width = 100%
 padding-left = 2
 padding-right = 2
 module-margin = 1
+
+scroll-up = i3wm-wsnext
+scroll-down = i3wm-wsprev
 
 background = ${colors.background}
 foreground = ${colors.foreground}
@@ -122,7 +60,7 @@ modules-right = pulseaudio update battery date
 
 locale = en_US.UTF-8
 
-[bar/new-bottom]
+[bar/bottom]
 bottom = true
 fixed-center = true
 
@@ -132,8 +70,14 @@ padding-left = 2
 padding-right = 2
 module-margin = 1
 
+scroll-up = i3wm-wsnext
+scroll-down = i3wm-wsprev
+
 background = ${colors.background}
 foreground = ${colors.foreground}
+
+tray-position = left
+tray-maxsize = 16
 
 font-0 = "FuraCode Nerd Font:size=12;3"
 font-1 = "FuraCode Nerd Font:style=Bold:size=12;3"
@@ -141,7 +85,7 @@ font-1 = "FuraCode Nerd Font:style=Bold:size=12;3"
 line-size = 2
 
 modules-left = i3 spotify
-modules-right = cpu memory network-ethernet network-wifi
+modules-right = cpu memory network-wifi network-ethernet
 
 locale = en_US.UTF-8
 
@@ -170,7 +114,7 @@ enable-scroll = true
 
 format = <ramp>
 format-foreground = ${colors.primary}
-format-underline = ${colors.primary}
+format-overline = ${colors.primary}
 format-padding = 1
 ramp-0 = 
 ramp-1 = 
@@ -255,6 +199,7 @@ format-full-padding = 1
 label-full = 100%
 
 format-charging = <animation-charging> <label-charging>
+format-charging-overline = ${colors.secondary}
 format-charging-padding = 1
 format-charging-prefix = " "
 format-charging-prefix-foreground = ${xrdb:color4}
@@ -267,7 +212,8 @@ animation-charging-4 = 
 animation-charging-framerate = 750
 
 format-discharging = <ramp-capacity> <label-discharging>
-format-discharging-padding = 1}
+format-discharging-overline = ${colors.primary}
+format-discharging-padding = 1
 label-discharging = %percentage%% -%consumption%W
 ramp-capacity-0 = 
 ramp-capacity-0-foreground = ${colors.urgency}
