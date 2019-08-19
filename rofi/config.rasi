@@ -1,0 +1,14 @@
+configuration {
+	scroll-method: 1;
+	terminal: "kitty";
+
+	show-icons: true;
+	icon-theme: "Papirus-Dark";
+
+	parse-hosts: false;
+	parse-known-hosts: false;
+
+	sort: true;
+	matching: "fuzzy";
+	case-sensitive: false;
+}

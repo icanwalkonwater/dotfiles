@@ -84,7 +84,7 @@ font-1 = "FuraCode Nerd Font:style=Bold:size=12;3"
 
 line-size = 2
 
-modules-left = i3 spotify
+modules-left = powermenu i3 spotify
 modules-right = cpu memory network-wifi network-ethernet
 
 locale = en_US.UTF-8
@@ -247,6 +247,16 @@ date-alt = %d/%m/%Y
 ;==========================================================
 ;================== BOTTOM LEFT MODULES
 ;==========================================================
+[module/powermenu]
+type = custom/text
+
+content = 
+content-foreground = ${colors.urgency}
+content-underline = ${colors.urgency}
+content-padding = 1
+
+click-left = rofi -modi system:$HOME/.config/rofi/scripts/powermenu.sh -theme themes/system-menu -show system
+
 [module/i3]
 type = internal/i3
 pin-workspaces = false
@@ -292,25 +302,6 @@ label-separator = " ⏽ "
 label-separator-foreground = ${colors.tertiary}
 
 label-focused-font = 2
-
-; [module/powermenu]
-; type = custom/menu
-; expand-right = true
-
-; format = <label-toggle> <menu>
-; format-background = ${colors.tertiary}
-; format-padding = 1
-
-; label-open = 
-; label-close = 
-; label-separator = "  "
-
-; menu-0-0 =  Suspend
-; menu-0-0-exec = systemctl suspend
-; menu-0-1 =  Reboot
-; menu-0-1-exec = systemctl reboot
-; menu-0-2 =  Shutdown
-; menu-0-2-exec = systemctl poweroff
 
 [module/spotify]
 type = custom/script
