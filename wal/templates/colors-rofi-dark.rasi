@@ -1,0 +1,15 @@
+* {{
+	x-background: {background};
+	background: transparent;
+	background-color: @background;
+
+	foreground: {foreground};
+	text-color: @foreground;
+
+	primary: @foreground;
+	secondary: {color5};
+	tertiary: {color2};
+	urgency: {color3};
+
+	semi-transparent: #0006;
+}}
