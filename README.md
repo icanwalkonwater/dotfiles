@@ -42,4 +42,5 @@ without polybar installed).
 ## Credits
 
 Somewhat inspired by [this post](https://www.reddit.com/r/unixporn/comments/8anij2/i3gapspolybarpywal_calm_your_mind/).
+
 Artist that made the wallpaper: [Romain Trystram](http://gallery.wacom.com/romaintrystram).
