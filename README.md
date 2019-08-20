@@ -1,4 +1,6 @@
 # Dotfiles
+My config files, feel free to use them as you want.
+
 Not that some config like grub/cura are just here to help me maintain my configs.
 
 ## Screenshot
