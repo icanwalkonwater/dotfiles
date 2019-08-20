@@ -3,6 +3,8 @@ My config files, feel free to use them as you want.
 
 Not that some config like grub/cura are just here to help me maintain my configs.
 
+[r/unixporn post](https://www.reddit.com/r/unixporn/comments/csyys1/i3gaps_blurry_neon/)
+
 ## Screenshots
 ![Screen](screen.png)
 ![Rofi App Launcher](screen_rofi_apps.png)
