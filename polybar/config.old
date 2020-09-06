@@ -24,26 +24,25 @@
 background = #00000000
 foreground = ${xrdb:foreground}
 
-; Light bg
-primary = ${xrdb:color4}
-; Dark bg
-secondary = ${xrdb:color8}
-; Really dark bg/fg
-tertiary = ${xrdb:color0}
-; Red
-urgency = ${xrdb:color1}
+; Text
+primary = ${xrdb:color15}
+; Focused text light
+secondary = ${xrdb:color5}
+; Dark secondary
+tertiary = ${xrdb:color2}
+; Urgent text
+urgency = ${xrdb:color3}
 
 ;==========================================================
 ;======================== BASE BARS
 ;==========================================================
 [bar/top]
-bottom = false
 fixed-center = true
 
 width = 100%
-height = 19
-offset-x = 1%
-; offset-y = 1%
+padding-left = 2
+padding-right = 2
+module-margin = 1
 
 scroll-up = i3wm-wsnext
 scroll-down = i3wm-wsprev
@@ -51,18 +50,13 @@ scroll-down = i3wm-wsprev
 background = ${colors.background}
 foreground = ${colors.foreground}
 
-radius = 0
+font-0 = "FuraCode Nerd Font:size=12;8"
+font-1 = "FuraCode Nerd Font:style=Bold:size=12;8"
 
-; module-margin = 2
-; padding = 2
-separator =
+line-size = 2
 
-font-0 = "FuraCode Nerd Font:size=12;3"
-font-1 = "FuraCode Nerd Font:style=Bold:size=12;3"
-
-modules-left = arch-icon dsPT i3 dulT
-modules-center = title
-modules-right = durT pulseaudio daTS update daST battery daTP date
+modules-left = arch-icon backlight title
+modules-right = pulseaudio update battery date
 
 locale = en_US.UTF-8
 
@@ -71,181 +65,29 @@ bottom = true
 fixed-center = true
 
 width = 100%
-height = 19
-offset-x = 1%
-; offset-y = 1%
+height = 30
+padding-left = 2
+padding-right = 2
+module-margin = 1
+
+scroll-up = i3wm-wsnext
+scroll-down = i3wm-wsprev
 
 background = ${colors.background}
 foreground = ${colors.foreground}
 
-radius = 0
-
-; module-margin = 2
-; padding = 1
-separator =
-
 tray-position = left
-tray-detached = false
-tray-maxsize = 15
-tray-background = ${colors.primary}
-tray-offset-x = -19
-tray-offset-y = 0
-tray-padding = 5
-tray-scale = 1.0
+tray-maxsize = 16
 
 font-0 = "FuraCode Nerd Font:size=12;3"
 font-1 = "FuraCode Nerd Font:style=Bold:size=12;3"
 
-modules-left = daPT powermenu daTS backlight daSP spotify spotify-off ddlP
-modules-right = ddrT cpu dsTS memory dsST network-wifi network-ethernet
+line-size = 2
+
+modules-left = powermenu i3 spotify
+modules-right = cpu memory network-wifi network-ethernet
 
 locale = en_US.UTF-8
-
-;==========================================================
-;======================== GAPS BARS
-;==========================================================
-[bar/top-gaps]
-inherit = bar/top
-
-modules-left = arch-icon dulP ddrT i3 dulT
-modules-center = title
-modules-right = durT pulseaudio ddlT durS update ddlS durT battery ddlT durP date
-
-[bar/top-gaps-nobattery]
-inherit = bar/top-gaps
-modules-right = durT pulseaudio ddlT durS update ddlS durP date
-
-[bar/bottom-gaps]
-inherit = bar/bottom
-
-modules-left = ddlP durT powermenu ddlT durS backlight ddlS durP spotify spotify-off ddlP
-modules-right = ddrT cpu dulT ddrS memory dulS ddrT network-wifi network-ethernet
-
-[bar/bottom-gaps-nobacklight]
-inherit = bar/bottom-gaps
-
-modules-left = ddlP durT powermenu ddlT durP spotify spotify-off ddlP
-
-;==========================================================
-;================== SOLID TRANSITION
-;==========================================================
-
-[module/dsPT]
-type = custom/text
-content = 
-content-background = ${colors.primary}
-content-foreground = ${colors.tertiary}
-
-[module/dsTS]
-type = custom/text
-content = 
-content-background = ${colors.tertiary}
-content-foreground = ${colors.secondary}
-
-[module/dsST]
-type = custom/text
-content = 
-content-background = ${colors.secondary}
-content-foreground = ${colors.tertiary}
-
-[module/daPT]
-type = custom/text
-content = 
-content-background = ${colors.primary}
-content-foreground = ${colors.tertiary}
-
-[module/daTP]
-type = custom/text
-content = 
-content-background = ${colors.tertiary}
-content-foreground = ${colors.primary}
-
-[module/daST]
-type = custom/text
-content = 
-content-background = ${colors.secondary}
-content-foreground = ${colors.tertiary}
-
-[module/daTS]
-type = custom/text
-content = 
-content-background = ${colors.tertiary}
-content-foreground = ${colors.secondary}
-
-[module/daSP]
-type = custom/text
-content = 
-content-background = ${colors.secondary}
-content-foreground = ${colors.primary}
-
-;==========================================================
-;================== GAPS TRANSITION
-;==========================================================
-[module/dulT]
-type = custom/text
-content = 
-content-foreground = ${colors.tertiary}
-content-background = ${colors.background}
-
-[module/ddrT]
-type = custom/text
-content = 
-content-foreground = ${colors.tertiary}
-content-background = ${colors.background}
-
-[module/ddlT]
-type = custom/text
-content = 
-content-foreground = ${colors.tertiary}
-content-background = ${colors.background}
-
-[module/durT]
-type = custom/text
-content = 
-content-foreground = ${colors.tertiary}
-content-background = ${colors.background}
-
-[module/ddlP]
-type = custom/text
-content = 
-content-foreground = ${colors.primary}
-content-background = ${colors.background}
-
-[module/durP]
-type = custom/text
-content = 
-content-foreground = ${colors.primary}
-content-background = ${colors.background}
-
-[module/dulP]
-type = custom/text
-content = 
-content-foreground = ${colors.primary}
-content-background = ${colors.background}
-
-[module/dulS]
-type = custom/text
-content = 
-content-foreground = ${colors.secondary}
-content-background = ${colors.background}
-
-[module/ddlS]
-type = custom/text
-content = 
-content-foreground = ${colors.secondary}
-content-background = ${colors.background}
-
-[module/durS]
-type = custom/text
-content = 
-content-foreground = ${colors.secondary}
-content-background = ${colors.background}
-
-[module/ddrS]
-type = custom/text
-content = 
-content-foreground = ${colors.secondary}
-content-background = ${colors.background}
 
 ;==========================================================
 ;================== TOP LEFT MODULES
@@ -255,171 +97,24 @@ type = custom/script
 exec = uname -r | cut -d- -f1
 interval = 999999999
 
-format =  <label>
-format-background = ${colors.primary}
-format-foreground = ${colors.tertiary}
-format-padding = 1
-label = %output%
-label-font = 2
-
-[module/i3]
-type = internal/i3
-pin-workspaces = false
-strip-wsnumbers = true
-format = <label-state> <label-mode>
-format-background = ${colors.tertiary}
-
-ws-icon-0 = 1;
-ws-icon-1 = 2;
-ws-icon-2 = 3;
-ws-icon-3 = 4;ﭮ
-ws-icon-4 = 5;
-ws-icon-5 = 6;
-ws-icon-6 = 7;
-ws-icon-7 = 8;
-ws-icon-8 = 9;
-ws-icon-9 = 10;
-
-label-mode = %mode%
-label-visible = %icon%
-label-focused = %index% %icon%
-label-unfocused = %icon%
-label-urgent = %index% %icon%
-label-mode-padding = 1
-label-visible-padding = 1
-label-focused-padding = 1
-label-unfocused-padding = 1
-label-urgent-padding = 1
-
-label-separator = 
-
-label-focused-font = 2
-label-focused-foreground = ${colors.primary}
-label-urgent-foreground = ${colors.urgency}
-
-[module/title]
-type = internal/xwindow
 format = <label>
-label = %title%
-label-empty =
-label-maxlen = 70
-
-;==========================================================
-;================== TOP RIGHT MODULES
-;==========================================================
-[module/pulseaudio]
-type = internal/pulseaudio
-sink = alsa_output.pci-0000_00_1f.3.analog-stereo
-use-ui-max = true
-interval = 5
-
-format-volume = 墳 VOL <label-volume>
-format-volume-padding = 1
-format-volume-background = ${colors.tertiary}
-label-volume = %percentage%%
-
-format-muted = <label-muted>
-format-muted-padding = 1
-format-muted-background = ${colors.tertiary}
-format-muted-prefix = "婢 "
-format-muted-prefix-foreground = ${colors.urgency}
-label-muted = VOL Muted
-
-[module/update]
-type = custom/script
-exec = ~/.config/polybar/arch-update.sh --display
-; exec-if = wget -q --spider http://google.com
-exec-if = ping -q -c1 -l1 8.8.8.8 >/dev/null
-; 10 minutes
-interval = 600
-
-format =  <label>
 format-padding = 1
-format-background = ${colors.secondary}
-format-foreground = ${colors.tertiary}
-; Trigger update
-click-right = ~/.config/polybar/arch-update.sh --update
+format-foreground = ${colors.primary}
+format-overline = ${colors.primary}
 
-[module/battery]
-type = internal/battery
-full-at = 100
-battery = BAT0
-adapter = AC0
+format-prefix = " "
+format-prefix-foreground = ${colors.tertiary}
 
-format-full =  <label-full>
-format-full-padding = 1
-label-full-background = ${colors.tertiary}
-label-full = 100%
-
-format-charging = <animation-charging> <label-charging>
-format-charging-padding = 1
-format-charging-background = ${colors.tertiary}
-format-charging-prefix = " "
-format-charging-prefix-foreground = ${xrdb:color11}
-label-charging = %percentage%% +%consumption%W
-animation-charging-0 = 
-animation-charging-1 = 
-animation-charging-2 = 
-animation-charging-3 = 
-animation-charging-4 = 
-animation-charging-framerate = 750
-
-format-discharging = <ramp-capacity> <label-discharging>
-format-discharging-padding = 1
-format-discharging-background = ${colors.tertiary}
-label-discharging = %percentage%% -%consumption%W
-ramp-capacity-0 = 
-ramp-capacity-0-foreground = ${colors.urgency}
-ramp-capacity-1 = 
-ramp-capacity-1-foreground = ${colors.urgency}
-ramp-capacity-2 = 
-ramp-capacity-3 = 
-ramp-capacity-4 = 
-
-[module/date]
-type = internal/date
-interval = 1.0
-format =  <label>
-format-background = ${colors.primary}
-format-foreground = ${colors.tertiary}
-format-padding = 1
-label = %date%%time%
-label-font = 2
-
-time = %H:%M:%S
-time-alt =
-date =
-date-alt = %d/%m/%Y
-
-;==========================================================
-;================== BOTTOM LEFT MODULES
-;==========================================================
-[module/powermenu]
-type = custom/menu
-expand-right = true
-
-format = <label-toggle> <menu>
-format-background = ${colors.tertiary}
-format-padding = 1
-
-label-open = 
-label-close = 
-label-separator = "  "
-
-menu-0-0 =  Suspend
-menu-0-0-exec = systemctl suspend
-menu-0-1 =  Reboot
-menu-0-1-exec = systemctl reboot
-menu-0-2 =  Shutdown
-menu-0-2-exec = systemctl poweroff
+label = %output%
+label-font = 1
 
 [module/backlight]
 type = internal/xbacklight
 enable-scroll = true
 
 format = <ramp>
-format-background = ${colors.secondary}
-format-foreground = ${colors.tertiary}
+format-foreground = ${colors.primary}
+format-overline = ${colors.primary}
 format-padding = 1
 ramp-0 = 
 ramp-1 = 
@@ -437,75 +132,217 @@ ramp-12 = 
 ramp-13 = 
 ramp-14 = 
 
+[module/title]
+type = internal/xwindow
+format = <label>
+format-foreground = ${colors.tertiary}
+format-padding = 1
+
+label = %title%
+label-empty =
+label-maxlen = 70
+
+;==========================================================
+;================== TOP RIGHT MODULES
+;==========================================================
+[module/pulseaudio]
+type = internal/pulseaudio
+; sink = alsa_output.pci-0000_00_1f.3.analog-stereo
+use-ui-max = true
+interval = 5
+
+format-volume = <ramp-volume> <label-volume>
+format-volume-foreground = ${colors.primary}
+format-volume-overline = ${colors.primary}
+format-volume-padding = 1
+
+ramp-volume-0 = 奄
+ramp-volume-0-foreground = ${colors.tertiary}
+ramp-volume-1 = 奔
+ramp-volume-1-foreground = ${colors.tertiary}
+ramp-volume-2 = 墳
+ramp-volume-2-foreground = ${colors.tertiary}
+
+label-volume = %percentage%%
+
+format-muted = <label-muted>
+format-muted-prefix-foreground = ${colors.urgency}
+format-muted-overline = ${colors.urgency}
+format-muted-padding = 1
+format-muted-prefix = "婢 "
+label-muted = Muted
+
+[module/update]
+type = custom/script
+exec = ~/.config/polybar/arch-update.sh
+; 10 minutes
+interval = 600
+
+format = <label>
+format-foreground = ${colors.primary}
+format-overline = ${colors.primary}
+format-padding = 1
+
+format-prefix = " "
+format-prefix-foreground = ${colors.tertiary}
+
+label-format = %output%
+
+[module/battery]
+type = internal/battery
+full-at = 100
+battery = BAT0
+adapter = AC0
+
+format-full =  <label-full>
+format-full-padding = 1
+label-full = 100%
+
+format-charging = <animation-charging> <label-charging>
+format-charging-overline = ${colors.secondary}
+format-charging-padding = 1
+format-charging-prefix = " "
+format-charging-prefix-foreground = ${xrdb:color4}
+label-charging = %percentage%% +%consumption%W
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-3 = 
+animation-charging-4 = 
+animation-charging-framerate = 750
+
+format-discharging = <ramp-capacity> <label-discharging>
+format-discharging-overline = ${colors.primary}
+format-discharging-padding = 1
+label-discharging = %percentage%% -%consumption%W
+ramp-capacity-0 = 
+ramp-capacity-0-foreground = ${colors.urgency}
+ramp-capacity-1 = 
+ramp-capacity-1-foreground = ${colors.urgency}
+ramp-capacity-2 = 
+ramp-capacity-2-foreground = ${colors.tertiary}
+ramp-capacity-3 = 
+ramp-capacity-3-foreground = ${colors.tertiary}
+ramp-capacity-4 = 
+ramp-capacity-4-foreground = ${colors.tertiary}
+
+[module/date]
+type = internal/date
+interval = 1
+format = <label>
+format-foreground = ${colors.primary}
+format-overline = ${colors.primary}
+format-padding = 1
+
+format-prefix = " "
+format-prefix-foreground = ${colors.tertiary}
+
+label = %date%%time%
+
+time = %H:%M:%S
+time-alt =
+date =
+date-alt = %d/%m/%Y
+
+;==========================================================
+;================== BOTTOM LEFT MODULES
+;==========================================================
+[module/powermenu]
+type = custom/text
+
+content = 
+content-foreground = ${colors.urgency}
+content-underline = ${colors.urgency}
+content-padding = 1
+
+click-left = rofi -modi system:$HOME/.config/rofi/scripts/powermenu.sh -theme themes/system-menu -show system
+
+[module/i3]
+type = internal/i3
+pin-workspaces = false
+strip-wsnumbers = true
+format = <label-state> <label-mode>
+
+ws-icon-0 = 1;
+ws-icon-1 = 2;
+ws-icon-2 = 3;
+ws-icon-3 = 4;ﭮ
+ws-icon-4 = 5;
+ws-icon-5 = 6;
+ws-icon-6 = 7;
+ws-icon-7 = 8;
+ws-icon-8 = 9;
+ws-icon-9 = 10;
+
+label-mode = Mode %mode%
+label-mode-padding = 1
+label-mode-foreground = ${colors.urgency}
+label-mode-underline = ${colors.urgency}
+
+label-visible = %icon%
+label-visible-foreground = ${colors.primary}
+
+label-focused = %index% %icon% 
+label-focused-foreground = ${colors.secondary}
+label-focused-underline = ${colors.secondary}
+
+label-unfocused = %icon%
+label-unfocused-foreground = ${colors.primary}
+
+label-urgent = %index% %icon%
+label-urgent-foreground = ${colors.urgency}
+label-urgent-underline = ${colors.urgency}
+
+label-visible-padding = 1
+label-focused-padding = 1
+label-unfocused-padding = 1
+label-urgent-padding = 1
+
+label-separator = " ⏽ "
+label-separator-foreground = ${colors.tertiary}
+
+label-focused-font = 2
+
 [module/spotify]
 type = custom/script
-exec = python ~/.config/polybar/spotify.py
-exec-if = pgrep -x spotify
+exec = bash ~/.config/polybar/spotify.sh
 interval = 2
 
 format = <label>
-format-background = ${colors.primary}
-format-foreground = ${colors.tertiary}
 format-padding = 1
+format-foreground = ${colors.tertiary}
+format-underline = ${colors.tertiary}
+
 label = %output%
-label-font = 2
-
-[module/spotify-off]
-type = custom/script
-exec = echo a
-exec-if = [[ ! $(pgrep -x spotify) ]]
-
-format = <label>
-format-background = ${colors.primary}
-format-foreground = ${colors.tertiary}
-format-padding = 1
-label =  Spotify
-label-font = 2
-
-click-left = "i3-msg exec spotify"
 
 ;==========================================================
 ;================== BOTTOM RIGHT MODULES
 ;==========================================================
 [module/cpu]
 type = internal/cpu
-interval = 1
-format =  <label>
-format-background = ${colors.tertiary}
+interval = 2
+format = <label>
+format-foreground = ${colors.primary}
+format-underline = ${colors.primary}
 format-padding = 1
-label = CPU %percentage%%
 
-; ramp-coreload-spacing = 1
-; ramp-coreload-0 = ▁
-; ramp-coreload-1 = ▂
-; ramp-coreload-2 = ▃
-; ramp-coreload-3 = ▄
-; ramp-coreload-4 = ▅
-; ramp-coreload-5 = ▆
-; ramp-coreload-6 = ▇
-; ramp-coreload-6-foreground = ${colors.urgency}
-; ramp-coreload-7 = █
-; ramp-coreload-7-foreground = ${colors.urgency}
+format-prefix = " "
+format-prefix-foreground = ${colors.tertiary}
+
+label = %percentage%%
 
 [module/memory]
 type = internal/memory
-interval = 2
-format =  <label>
-format-background = ${colors.secondary}
-format-foreground = ${colors.tertiary}
+interval = 5
+format = <label>
+format-foreground = ${colors.primary}
+format-underline = ${colors.primary}
 format-padding = 1
-label = RAM  %percentage_used%%  %percentage_swap_used%%
 
-; bar-used-format = [%fill%%empty%]
-; bar-used-width = 10
-; bar-used-gradient = false
-; bar-used-foreground-0 = ${colors.primary}
-; bar-used-foreground-1 = ${colors.primary}
-; bar-used-foreground-2 = ${colors.primary}
-; bar-used-foreground-3 = ${colors.urgency}
-; bar-used-fill = ━
-; bar-used-empty = ─
-; bar-used-empty-foreground = ${colors.secondary}
+format-prefix = " "
+format-prefix-foreground = ${colors.tertiary}
+
+label = %percentage_used%% ⏽ %percentage_swap_used%%
 
 [module/network-wifi]
 type = internal/network
@@ -515,18 +352,22 @@ ping-interval = 0
 accumulate-stats = true
 
 format-connected = <label-connected>
-format-connected-background = ${colors.tertiary}
+format-connected-foreground = ${colors.primary}
+format-connected-underline = ${colors.primary}
 format-connected-padding = 1
-label-connected =  %upspeed%   %downspeed%
+format-prefix = "直 "
+format-prefix-foreground = ${colors.tertiary}
+
+label-connected = %downspeed%
 
 format-disconnected = <label-disconnected>
-format-disconnected-background = ${colors.tertiary}
+format-disconnected-foreground = ${colors.urgency}
+format-disconnected-underline = ${colors.urgency}
 format-disconnected-padding = 1
-label-disconnected = 睊
-label-disconnected-foreground = ${colors.urgency}
+
+label-disconnected = 睊 Offline 
 
 format-packet-loss = <animation-packetloss> <label-packetloss>
-format-packet-loss-background = ${colors.tertiary}
 format-packet-loss-padding = 1
 label-packetloss = Packet loss
 label-packetloss-foreground = ${colors.urgency}
@@ -539,26 +380,32 @@ animation-packetloss-1-foreground = ${colors.primary}
 type = internal/network
 interface = enp3s0
 ; interface = enp0s20u9
-interval = 3.0
+interval = 5
 ping-interval = 0
 accumulate-stats = true
 
 format-connected = <label-connected>
-format-connected-background = ${colors.tertiary}
+format-connected-foreground = ${colors.primary}
+format-connected-underline = ${colors.primary}
 format-connected-padding = 1
-label-connected =  %upspeed%   %downspeed%
+
+format-connected-prefix = " "
+format-connected-prefix-foreground = ${colors.tertiary}
+
+label-connected = %downspeed%
 
 format-disconnected = <label-disconnected>
-format-disconnected-background = ${colors.tertiary}
+format-disconnected-foreground = ${colors.urgency}
+format-disconnected-underline = ${colors.urgency}
 format-disconnected-padding = 1
-label-disconnected = 
-label-disconnected-foreground = ${colors.urgency}
+
+label-disconnected =  Disconnected
 
 format-packet-loss = <animation-packetloss> <label-packetloss>
-format-packet-loss-background = ${colors.tertiary}
 format-packet-loss-padding = 1
+format-packet-loss-foreground = ${colors.primary}
+format-packet-loss-underline = ${colors.primary}
 label-packetloss = Packet loss
-label-packetloss-foreground = ${colors.urgency}
 animation-packetloss-0 = 
 animation-packetloss-0-foreground = ${colors.urgency}
 animation-packetloss-1 = 
