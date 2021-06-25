@@ -1,0 +1,11 @@
+@import url("../../.cache/wal/colors-gtk.css");
+
+.thunar.background {
+  background-color: alpha(@background, 0.5);
+}
+.thunar .sidebar, .thunar .sidebar .view {
+  background-color: transparent;
+}
+.thunar .standard-view {
+  background-color: @background;
+}
