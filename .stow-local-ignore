@@ -1,0 +1,11 @@
+\.git
+\.gitignore
+\.gitmodules
+
+# emacs stuff
+.+~
+\#.*\#
+
+\/README.*
+\/LICENSE*
+\/COPYING
