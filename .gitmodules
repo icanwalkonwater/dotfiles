@@ -1,0 +1,3 @@
+[submodule "neovim/dot-config/nvim"]
+	path = neovim/dot-config/nvim
+	url = git@github.com:icanwalkonwater/vimfiles.git
