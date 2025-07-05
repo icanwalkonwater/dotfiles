@@ -1,0 +1,7 @@
+[window]
+padding = { x = 1, y = 1 }
+dynamic_padding = true
+decorations = "None"
+
+[font]
+normal = { family = "JetBrainsMono Nerd Font", style = "Regular" }
