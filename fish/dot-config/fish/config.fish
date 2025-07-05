@@ -5,6 +5,11 @@ if status is-interactive
     starship init fish | source
 end
 
+# Remove greeting
+set fish_greeting
+
+# Set editor
 set -x EDITOR nvim
 
+# Aliases
 alias l='ls -alh'
