@@ -5,4 +5,4 @@ decorations = "None"
 opacity = 0.9
 
 [font]
-normal = { family = "JetBrainsMono Nerd Font", style = "Regular" }
+normal = { family = "Monospace", style = "Regular" }
