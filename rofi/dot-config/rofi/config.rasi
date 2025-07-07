@@ -1,0 +1,23 @@
+configuration {
+/*  modes: "window,drun,run,ssh";*/
+  show-icons: true;
+/*  icon-theme: ;*/
+  sort: true;
+  sorting-method: "fzf";
+/*  case-sensitive: false;*/
+/*  case-smart: false;*/
+  cycle: true;
+/*  sidebar-mode: false;*/
+  matching: "fuzzy";
+  window-thumbnail: false;
+  timeout {
+    action: "kb-cancel";
+    delay:  0;
+  }
+  filebrowser {
+    directories-first: true;
+    sorting-method:    "name";
+  }
+}
+
+@theme "Arc-Dark"
