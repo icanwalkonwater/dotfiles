@@ -13,3 +13,6 @@ set -x EDITOR nvim
 
 # Aliases
 alias l='ls -alh'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias .....='cd ../../../..'
