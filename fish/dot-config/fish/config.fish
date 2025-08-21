@@ -16,3 +16,5 @@ alias l='ls -alh'
 alias ...='cd ../..'
 alias ....='cd ../../..'
 alias .....='cd ../../../..'
+
+alias pacrmorphans='sudo pacman -Rns (pacman -Qtdq)'
