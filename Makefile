@@ -13,3 +13,9 @@ up:
 	stow rofi
 	stow dunst
 	stow fontconfig
+
+.PHONY: pipewire
+pipewire:
+	systemctl enable --user pipewire.service
+	systemctl enable --user pipewire-pulse.service
+	systemctl enable --user wireplumber.service
