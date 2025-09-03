@@ -1,3 +1,13 @@
 Host github.com
   User git
   IdentityFile ~/.ssh/github.key
+
+Host coruscant
+  User lucas
+  HostName 192.168.1.27
+  IdentityFile ~/.ssh/coruscant.key
+
+Host coruscant
+  User root
+  HostName 192.168.1.27
+  IdentityFile ~/.ssh/coruscant-root.key
