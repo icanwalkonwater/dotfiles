@@ -1,4 +1,4 @@
-STOW_APPS = fish starship zellij neovim alacritty paru hyprland hyprpaper hyprlock waybar rofi dunst fontconfig ssh nix
+STOW_APPS = fish starship zellij neovim alacritty paru hyprland hyprpaper hyprlock hyprsunset waybar rofi dunst fontconfig ssh nix
 
 .PHONY: all
 all: $(STOW_APPS) pipewire
