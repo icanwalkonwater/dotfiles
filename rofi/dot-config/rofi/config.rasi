@@ -18,6 +18,7 @@ configuration {
     directories-first: true;
     sorting-method:    "name";
   }
+  run-command: "uwsm app -- {cmd}";
 }
 
 @theme "Arc-Dark"
